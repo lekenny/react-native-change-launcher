@@ -1,0 +1,29 @@
+{
+  "name": "react-native-change-launcher",
+  "version": "0.0.1",
+  "description": "change launcher Icon",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lekenny/react-native-change-launcher.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-component",
+    "launcher",
+    "Icon"
+  ],
+  "author": "lekenny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lekenny/react-native-change-launcher/issues"
+  },
+  "homepage": "https://github.com/lekenny/react-native-change-launcher#readme",
+  "peerDependencies": {
+    "react-native": ">=0.8.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.1.1"
+  }
+}
