@@ -1,0 +1,5 @@
+rootProject.name = 'AwesomeProject'
+
+include ':app',':react-native-change-launcher'
+
+project(':react-native-change-launcher').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-change-launcher/android')
