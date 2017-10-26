@@ -20,7 +20,6 @@ public class ChangeLuancherPackage implements ReactPackage {
     return Arrays.<NativeModule>asList(new ChangeLuancherModule(reactContext));
   }
 
-  @Override
   public List<Class<? extends JavaScriptModule>> createJSModules() {
     return Collections.emptyList();
   }

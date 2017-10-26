@@ -7,8 +7,6 @@ import { NativeModules } from "react-native"
 
 const ChangeLuancher = NativeModules.ChangeLuancher
 
-export default {
-	changeLuancher: function(componentName){
+export default function changeLuancher(componentName){
 		ChangeLuancher.changeLuancher(componentName);
 	}
-}
