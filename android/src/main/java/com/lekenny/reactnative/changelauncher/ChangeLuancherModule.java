@@ -26,7 +26,7 @@ public class ChangeLuancherModule extends ReactContextBaseJavaModule implements
 
   @Override
   public String getName() {
-    return "ChangeLuancher";
+    return "TFChangeAppIcon";
   }
 
   @Override
@@ -37,6 +37,13 @@ public class ChangeLuancherModule extends ReactContextBaseJavaModule implements
   @ReactMethod
   public void changeLuancher(String name){
     this.changeTo = name;
+  }
+
+  @ReactMethod
+  public void changeAppIconWithInfo(ReadableMap map,Callback callback){
+    String name = map.getString("iconName");
+    this.changeTo = name;
+    callback.invoke(null,"success");
   }
 
   private void cl(String name){

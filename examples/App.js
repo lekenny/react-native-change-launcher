@@ -13,7 +13,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-import changeLuancher from 'react-native-change-launcher'
+import changeAppIcon from 'react-native-change-launcher'
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -36,8 +36,10 @@ export default class App extends Component<{}> {
           To get started, edit App.js
         </Text>
         <TouchableOpacity onPress={()=>{
-          console.log(changeLuancher);
-          changeLuancher('com.awesomeproject.MainActivity2');
+          console.log(changeLuancher)
+          changeAppIcon({iconName:"com.awesomeproject.MainActivity2",alert: false},(callback)=>{
+
+          })
         }}>
           <Text style={styles.welcome}>
             点击更换Icon

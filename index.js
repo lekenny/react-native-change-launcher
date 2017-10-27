@@ -5,8 +5,10 @@
 
 import { NativeModules } from "react-native"
 
-const ChangeLuancher = NativeModules.ChangeLuancher
+const TFChangeAppIcon = NativeModules.TFChangeAppIcon
 
-export default function changeLuancher(componentName){
-		ChangeLuancher.changeLuancher(componentName);
-	}
+export default function changeAppIcon(info, callBack) {
+	TFChangeAppIcon.changeAppIconWithInfo(info, (respone) => {
+		callBack(respone)
+	})
+}
