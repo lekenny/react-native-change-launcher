@@ -3,6 +3,8 @@ package com.lekenny.reactnative.changelauncher;
 import android.app.Activity;
 import android.content.ComponentName;
 import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.facebook.react.bridge.LifecycleEventListener;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -11,7 +13,8 @@ import com.facebook.react.bridge.ReactMethod;
  * Created by admin on 2017/10/26.
  */
 
-public class ChangeLuancherModule extends ReactContextBaseJavaModule {
+public class ChangeLuancherModule extends ReactContextBaseJavaModule implements
+    LifecycleEventListener {
 
   private final ReactApplicationContext reactContext;
   String changeTo;
@@ -26,9 +29,14 @@ public class ChangeLuancherModule extends ReactContextBaseJavaModule {
     return "ChangeLuancher";
   }
 
+  @Override
+  public void initialize() {
+    getReactApplicationContext().addLifecycleEventListener(this);
+  }
+
   @ReactMethod
   public void changeLuancher(String name){
-    cl(changeTo);
+    this.changeTo = name;
   }
 
   private void cl(String name){
@@ -41,5 +49,22 @@ public class ChangeLuancherModule extends ReactContextBaseJavaModule {
     pm.setComponentEnabledSetting(new ComponentName(activity, name),
         PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 
+  }
+
+  @Override
+  public void onHostResume() {
+
+  }
+
+  @Override
+  public void onHostPause() {
+
+  }
+
+  @Override
+  public void onHostDestroy() {
+    if(!TextUtils.isEmpty(changeTo)){
+      cl(changeTo);
+    }
   }
 }
